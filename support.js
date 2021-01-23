@@ -25,7 +25,7 @@ const sendCoverage = (coverage, pathname = '/') => {
  * @param {string} s Message to log.
  */
 const logMessage = (s) => {
-  cy.log(`${s} \`[@cypress/code-coverage]\``)
+  cy.log(`${s} \`[vue-code-coverage]\``)
 }
 
 /**
@@ -73,7 +73,7 @@ const registerHooks = () => {
     // keep increasing every time we rerun the tests
     const logInstance = Cypress.log({
       name: 'Coverage',
-      message: ['Reset [@cypress/code-coverage]']
+      message: ['Reset [vue-code-coverage]']
     })
 
     cy.task(
@@ -223,7 +223,7 @@ const registerHooks = () => {
     // when all tests finish, lets generate the coverage report
     const logInstance = Cypress.log({
       name: 'Coverage',
-      message: ['Generating report [@cypress/code-coverage]']
+      message: ['Generating report [vue-code-coverage]']
     })
     cy.task('coverageReport', null, {
       timeout: Cypress.moment.duration(3, 'minutes').asMilliseconds(),

@@ -1,11 +1,11 @@
-# @cypress/code-coverage [![renovate-app badge][renovate-badge]][renovate-app] [![CircleCI](https://circleci.com/gh/cypress-io/code-coverage.svg?style=svg)](https://circleci.com/gh/cypress-io/code-coverage)
+# vue-code-coverage [![renovate-app badge][renovate-badge]][renovate-app] [![CircleCI](https://circleci.com/gh/cypress-io/code-coverage.svg?style=svg)](https://circleci.com/gh/cypress-io/code-coverage)
 
 > Saves the code coverage collected during Cypress tests
 
 ## Install
 
 ```shell
-npm install -D @cypress/code-coverage
+npm install -D vue-code-coverage
 ```
 
 Note: this plugin assumes `cypress` is a peer dependency already installed in your project.
@@ -13,14 +13,14 @@ Note: this plugin assumes `cypress` is a peer dependency already installed in yo
 Add to your `cypress/support/index.js` file
 
 ```js
-import '@cypress/code-coverage/support'
+import 'vue-code-coverage/support'
 ```
 
 Register tasks in your `cypress/plugins/index.js` file
 
 ```js
 module.exports = (on, config) => {
-  require('@cypress/code-coverage/task')(on, config)
+  require('vue-code-coverage/task')(on, config)
 
   // add other tasks to be registered here
 
@@ -128,8 +128,8 @@ Put the following in `cypress/plugins/index.js` file to use `.babelrc` file
 
 ```js
 module.exports = (on, config) => {
-  require('@cypress/code-coverage/task')(on, config)
-  on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'))
+  require('vue-code-coverage/task')(on, config)
+  on('file:preprocessor', require('vue-code-coverage/use-babelrc'))
   return config
 }
 ```
@@ -144,10 +144,10 @@ If you cannot use `.babelrc` for some reason (maybe it is used by other tools?),
 
 ```js
 module.exports = (on, config) => {
-  require('@cypress/code-coverage/task')(on, config)
+  require('vue-code-coverage/task')(on, config)
   on(
     'file:preprocessor',
-    require('@cypress/code-coverage/use-browserify-istanbul')
+    require('vue-code-coverage/use-browserify-istanbul')
   )
   return config
 }
@@ -165,7 +165,7 @@ You can also instrument your server-side code and produce combined coverage repo
 ```js
 const express = require('express')
 const app = express()
-require('@cypress/code-coverage/middleware/express')(app)
+require('vue-code-coverage/middleware/express')(app)
 ```
 
 **Tip:** you can register the endpoint only if there is global code coverage object, and you can exclude the middleware code from the coverage numbers
@@ -174,7 +174,7 @@ require('@cypress/code-coverage/middleware/express')(app)
 // https://github.com/gotwarlost/istanbul/blob/master/ignoring-code-for-coverage.md
 /* istanbul ignore next */
 if (global.__coverage__) {
-  require('@cypress/code-coverage/middleware/express')(app)
+  require('vue-code-coverage/middleware/express')(app)
 }
 ```
 
@@ -182,7 +182,7 @@ If you use Hapi server, define the endpoint yourself and return the object
 
 ```js
 if (global.__coverage__) {
-  require('@cypress/code-coverage/middleware/hapi')(server)
+  require('vue-code-coverage/middleware/hapi')(server)
 }
 ```
 
@@ -317,7 +317,7 @@ Often needed to skip a statement
 ```js
 /* istanbul ignore next */
 if (global.__coverage__) {
-  require('@cypress/code-coverage/middleware/express')(app)
+  require('vue-code-coverage/middleware/express')(app)
 }
 ```
 
@@ -438,11 +438,11 @@ Change the plugins file `cypress/plugins/index.js`
 ```js
 // BEFORE
 module.exports = (on, config) => {
-  on('task', require('@cypress/code-coverage/task'))
+  on('task', require('vue-code-coverage/task'))
 }
 // AFTER
 module.exports = (on, config) => {
-  require('@cypress/code-coverage/task')(on, config)
+  require('vue-code-coverage/task')(on, config)
   // IMPORTANT to return the config object
   // with the any changed environment variables
   return config
@@ -453,8 +453,8 @@ module.exports = (on, config) => {
 
 ```json
 {
-  "pluginsFile": "node_modules/@cypress/code-coverage/plugins",
-  "supportFile": "node_modules/@cypress/code-coverage/support"
+  "pluginsFile": "node_modules/vue-code-coverage/plugins",
+  "supportFile": "node_modules/vue-code-coverage/support"
 }
 ```
 

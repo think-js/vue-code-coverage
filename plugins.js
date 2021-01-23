@@ -1,8 +1,8 @@
 // common Cypress plugin file you can point at to have the
 // code coverage tasks registered correctly. From your "cypress.json" file
 // {
-//   "pluginsFile": "@cypress/code-coverage/plugins",
-//   "supportFile": "@cypress/code-coverage/support"
+//   "pluginsFile": "vue-code-coverage/plugins",
+//   "supportFile": "vue-code-coverage/support"
 // }
 //
 module.exports = (on, config) => {
