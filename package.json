@@ -1,6 +1,6 @@
 {
   "name": "vue-code-coverage",
-  "version": "3.8.3",
+  "version": "3.8.4",
   "description": "Saves the code coverage collected during Cypress tests",
   "main": "index.js",
   "scripts": {
